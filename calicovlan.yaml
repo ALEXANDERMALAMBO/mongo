@@ -1,0 +1,29 @@
+calicoctl create -f - <<EOF
+apiVersion: projectcalico.org/v3
+kind: NetworkPolicy
+metadata:
+  name: my-vlan
+spec:
+  selector: "app == frontend || app == backend || app == database"
+  ingress:
+  - action: Allow
+    protocol: TCP
+    source:
+      selector: "app == frontend"
+    destination:
+      selector: "app == backend"
+    sourcePorts:
+    - 3000
+    destinationPorts:
+    - 3001
+  - action: Allow
+    protocol: TCP
+    source:
+      selector: "app == backend"
+    destination:
+      selector: "app == database"
+    sourcePorts:
+    - 3001
+    destinationPorts:
+    - 27017
+EOF
