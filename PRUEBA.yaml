@@ -23,4 +23,4 @@ apiVersion: operator.tigera.io/v1
 kind: APIServer
 metadata:
   name: default
-spec: {
+spec: {}
