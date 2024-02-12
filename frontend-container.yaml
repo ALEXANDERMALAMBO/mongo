@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: frontend-deployment
-  namespace: my-vlan
+  namespace: my-vlan #holaaaaa
 spec:
   replicas: 1
   selector:
