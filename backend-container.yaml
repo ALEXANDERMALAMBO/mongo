@@ -15,6 +15,6 @@ spec:
     spec:
       containers:
       - name: backend-container
-        image: backend-adopt-pet:latest
+        image: mateogonzalezamortegui/backend-adopt-pet:latest
         ports:
         - containerPort: 3001  # Puerto por defecto en el que escucha NestJS
