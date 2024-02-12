@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
       - name: frontend-container
-        image: tu_imagen_frontend:etiqueta
+        image: frontend-adopt-pet:latest
         ports:
-        - containerPort: 80  # El puerto en el que escucha tu frontend
+        - containerPort: 3000  # El puerto en el que escucha tu frontend
