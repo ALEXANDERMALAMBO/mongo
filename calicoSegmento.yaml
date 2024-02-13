@@ -1,0 +1,10 @@
+apiVersion: projectcalico.org/v3
+kind: IPPool
+metadata:
+  name: vlan2
+spec:
+  cidr: 10.244.1.0/24
+  blockSize: 26
+  ipipMode: Never
+  natOutgoing: true
+  disabled: false
