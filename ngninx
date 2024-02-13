@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ngnix-deployment
+  namespace: myvlan #xd
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ngninx
+  template:
+    metadata:
+      labels:
+        app: database
+    spec:
+      containers:
+      - name: nginx-container
+        image: nginx:latest
+        ports:
+        - containerPort: 80
