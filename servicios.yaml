@@ -17,7 +17,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: backend-service
-  namespace: myvlan2
+  namespace: myvlan
 spec:
   selector:
     app: backend
@@ -32,7 +32,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: database-service
-  namespace: myvlan3
+  namespace: myvlan
 spec:
   selector:
     app: database
