@@ -3,6 +3,7 @@ kind: Deployment
 metadata:
   name: frontend-deployment
   namespace: myvlan #hola
+  #porque no coge
 spec:
   replicas: 1
   selector:
