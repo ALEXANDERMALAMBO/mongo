@@ -1,4 +1,5 @@
-apiVersion: apps/v1
+///
+apiVersion: apps/v2
 kind: Deployment
 metadata:
   name: backend-deployment
@@ -14,6 +15,6 @@ spec:
     spec:
       containers:
       - name: backend-container
-        image: mateogonzalezamortegui/backend-adopt-pet:latest #fff
+        image: mateogonzalezamortegui/backend-adopt-pet:latest #Ahora si deberia funcionar :((
         ports:
         - containerPort: 3001  # Puerto por defecto en el que escucha NestJS
