@@ -6,5 +6,5 @@ spec:
   containers:
   - name: alpine-container
     image: alpine
-    command: ["sleep", "infinity"]  # Para mantener el contenedor en ejecución
+    command: ["tail", "-f", "/dev/null"] # Para mantener el contenedor en ejecución
 
