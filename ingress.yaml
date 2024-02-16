@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: game-2048
+spec:
+  ingressClassName: ngrok
+  rules:
+    - host: expert-impala-tidy.ngrok-free.app  # Utilizamos directamente el nombre de dominio sin la variable de entorno
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: frontend-service  # Nombre del servicio que has creado
+                port:
+                  number: 80
