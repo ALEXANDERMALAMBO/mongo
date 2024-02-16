@@ -4,9 +4,10 @@ metadata:
   name: frontend-service
 spec:
   ports:
-    - name: http
-      port: 3000
-      targetPort: 3000  # Cambia esto al puerto en el que escucha tu frontend
+  - name: http
+    protocol: TCP
+    port: 3000
+    targetPort: 3000  # Cambia esto al puerto en el que escucha tu frontend
   selector:
     app: frontend
 ---
