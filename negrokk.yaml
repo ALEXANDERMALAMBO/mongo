@@ -2,7 +2,6 @@ apiVersion: v1
 kind: Service
 metadata:
   name: game-2048
-  namespace: ngrok
 spec:
   ports:
     - name: http
@@ -15,7 +14,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: game-2048
-  namespace: ngrok
 spec:
   replicas: 1
   selector:
@@ -32,23 +30,3 @@ spec:
           ports:
             - name: http
               containerPort: 80
----
-# ngrok Ingress Controller Configuration
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  name: game-2048-ingress
-  namespace: ngrok
-spec:
-  ingressClassName: ngrok
-  rules:
-    - host: expert-impala-tidy.ngrok-free.app
-      http:
-        paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: game-2048
-                port:
-                  number: 80
