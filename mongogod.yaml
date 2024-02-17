@@ -11,21 +11,28 @@ spec:
   template:
     metadata:
       labels:
-        app: database
+        app: mongodb
     spec:
       containers:
-      - name: database
+      - name: mongodb
         image: mongo:22.04
         ports:
         - containerPort: 27017
         volumeMounts:
         - name: database
           mountPath: /data/db
-  volumeClaimTemplates:
-  - metadata:
-      name: database
-    spec:
-      accessModes: [ "ReadWriteOnce" ]
-      resources:
-        requests:
-          storage: 5Gi
+  volumes:
+  - name: database
+    persistentVolumeClaim:
+      claimName: mongodb-pvc
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mongodb-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 5Gi
