@@ -1,3 +1,4 @@
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -6,32 +7,25 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: database
+      app: mongodb
   template:
     metadata:
       labels:
         app: database
     spec:
       containers:
-      - name: mongodb
-        image: mongo:latest
+      - name: database
+        image: mongo:4.0.27
         ports:
         - containerPort: 27017
         volumeMounts:
-        - name: mongodb-data
+        - name: database
           mountPath: /data/db
-      volumes:
-      - name: mongodb-data
-        persistentVolumeClaim:
-          claimName: mongodb-pvc
----
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: mongodb-pvc
-spec:
-  accessModes:
-    - ReadWriteOnce
-  resources:
-    requests:
-      storage: 5Gi
+  volumeClaimTemplates:
+  - metadata:
+      name: database
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      resources:
+        requests:
+          storage: 5Gi
