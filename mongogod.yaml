@@ -1,4 +1,3 @@
----
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -21,10 +20,10 @@ spec:
         volumeMounts:
         - name: database
           mountPath: /data/db
-  volumes:
-  - name: database
-    persistentVolumeClaim:
-      claimName: mongodb-pvc
+      volumes:
+      - name: database
+        persistentVolumeClaim:
+          claimName: mongodb-pvc
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
@@ -36,3 +35,4 @@ spec:
   resources:
     requests:
       storage: 5Gi
+
