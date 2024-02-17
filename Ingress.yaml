@@ -5,7 +5,7 @@ metadata:
 spec:
   ingressClassName: ngrok
   rules:
-    - host: https://expert-impala-tidy.ngrok-free.app/
+    - host: expert-impala-tidy.ngrok-free.app
       http:
         paths:
           - path: /
