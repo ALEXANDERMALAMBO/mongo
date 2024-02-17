@@ -2,6 +2,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: game-2048
+  namespace: ngrok-ingress-controller
 spec:
   ingressClassName: ngrok
   rules:
