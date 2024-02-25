@@ -16,4 +16,4 @@ spec:
       - name: frontend-container
         image: mateogonzalezamortegui/frontend-adopt-pet:latest
         ports:
-        - containerPort: 3000  # El puerto en el que escucha tu frontend :)
+        - containerPort: 3000  # El puerto frontend :)
