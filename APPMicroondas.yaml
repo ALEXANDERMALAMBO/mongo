@@ -1,4 +1,4 @@
-apiVersion: apps/v1
+apiVersion: v1
 kind: Deployment
 metadata:
   name: Microondas
@@ -18,7 +18,7 @@ spec:
         ports:
         - containerPort: 3000
 
---
+---
 
 apiVersion: v1
 kind: Service
