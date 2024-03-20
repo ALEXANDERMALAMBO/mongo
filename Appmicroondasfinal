@@ -1,0 +1,34 @@
+apiVersion: v1
+kind: Deployment
+metadata:
+  name: Microondas
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: appmicro
+  template:
+    metadata:
+      labels:
+        app: appmicro
+    spec:
+      containers:
+      - name: Microondas
+        image: mateogonzalezamortegui/microondas:latest
+        ports:
+        - containerPort: 3000
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: microondas-service
+spec:
+  selector:
+    app: appmicro
+  ports:
+    - protocol: TCP
+      port: 3000
+      targetPort: 3000
+  type: LoadBalance
